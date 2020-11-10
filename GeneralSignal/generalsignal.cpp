@@ -1,14 +1,13 @@
 #include "generalsignal.h"
 #include "ui_generalsignal.h"
+#include "ParamSignal.h"
 
 GeneralSignal::GeneralSignal(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::GeneralSignal)
 {
     ui->setupUi(this); 
-
 }
-
 GeneralSignal::~GeneralSignal()
 {
     delete ui;
@@ -18,8 +17,6 @@ void GeneralSignal::DragGraph(void)
 {
    QChart *widget = new QChart;
    ui->graphicsView->setChart(widget);
-   QString jopa = "jopa";
-   widget->setTitle(jopa);
 
    QLineSeries* series = new QLineSeries();
 
@@ -44,8 +41,42 @@ void GeneralSignal::DragGraph(void)
    widget->createDefaultAxes();
 
 }
+void GeneralSignal::DragSig(double *mass, ParamSignal prmsgn)
+{
+    QChart *widget = new QChart;
+    ui->graphicsView->setChart(widget);
 
+    QLineSeries* series = new QLineSeries();
+
+    for(int i = 0; i < SIZE_MASS; i++)
+    {
+        double x =  prmsgn.T * i;
+        double y =  mass[i];
+        series->append(x,y);
+
+    }
+    widget->addSeries(series);
+    widget->createDefaultAxes();
+}
 void GeneralSignal::on_pushButton_clicked()
 {
-   DragGraph();
+   //DragGraph();
+   //! Создание динамического масива значений сигнала
+   double *mass = new double[SIZE_MASS];
+   //CreatMass(mass);
+   //! Структура параметров сигнала
+   ParamSignal param_sign;
+   param_sign.I = ui->doubleSpinBox_2->value(); //32000;
+   param_sign.f = ui->spinBox_2->value(); //500;
+   param_sign.T = ui->doubleSpinBox_3->value()/100; //0.01;
+   param_sign.F_angle = 2 * M_PI * param_sign.f;
+   param_sign.F_start = ui->doubleSpinBox_5->value();// 0.5;
+   int sign;
+   if (ui->radioButton->isChecked()) sign = 0;
+   else sign = 1;
+
+   CreatSignal(mass, sign, param_sign);
+   DragSig(mass, param_sign);
+
+   DelMass(mass);
 }

@@ -1,8 +1,10 @@
 #include "generalsignal.h"
+#include "ParamSignal.h"
 
 #include <QApplication>
 
 #include "ui_generalsignal.h"
+
 
 int main(int argc, char *argv[])
 {
