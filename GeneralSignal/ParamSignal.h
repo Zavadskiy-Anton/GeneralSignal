@@ -14,7 +14,7 @@ struct ParamSignal
 extern ParamSignal prm_signal;
 
 void CreatSignal (double *mass, int sign, ParamSignal prmsgn);
-void CreatMass(double *mass);
+void CreatMass(double*& mass);
 void DelMass(double *mass);
 
 #endif // PARAMSIGNAL_H

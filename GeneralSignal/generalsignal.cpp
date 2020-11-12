@@ -62,8 +62,8 @@ void GeneralSignal::on_pushButton_clicked()
 {
    //DragGraph();
    //! Создание динамического масива значений сигнала
-   double *mass = new double[SIZE_MASS];
-   //CreatMass(mass);
+   double *mass;// = new double[SIZE_MASS];
+   CreatMass(mass);
    //! Структура параметров сигнала
    ParamSignal param_sign;
    param_sign.I = ui->doubleSpinBox_2->value(); //32000;

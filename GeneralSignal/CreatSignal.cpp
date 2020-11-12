@@ -2,9 +2,9 @@
 #include "ui_generalsignal.h"
 #include "math.h"
 
-void CreatMass(double *mass)
+void CreatMass(double*& mass)
 {
-    //mass = new double[SIZE_MASS];
+    mass = new double[SIZE_MASS];
 }
 void DelMass(double *mass)
 {
