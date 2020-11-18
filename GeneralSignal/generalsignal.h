@@ -2,6 +2,7 @@
 #define GENERALSIGNAL_H
 
 #include <QMainWindow>
+#include "ParamSignal.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class GeneralSignal; }
@@ -14,6 +15,8 @@ class GeneralSignal : public QMainWindow
 public:
     GeneralSignal(QWidget *parent = nullptr);
     void DragGraph(void);
+
+    void DragSig(double *mass, ParamSignal prmsgn);
 
     ~GeneralSignal();
 
