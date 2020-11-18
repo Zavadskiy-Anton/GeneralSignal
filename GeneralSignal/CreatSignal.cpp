@@ -19,12 +19,12 @@ void CreatSignal (double *mass, int sign, ParamSignal prmsgn)
         if (sign == 0)
         {
             mass[i] = prmsgn.I * sin(prmsgn.F_angle * x / SIZE_MASS + prmsgn.F_start);
-             x= prmsgn.T * i;
+//            x= prmsgn.T * i;
         }
         if (sign == 1)
         {
             mass[i]  = prmsgn.I * cos(prmsgn.F_angle * x / SIZE_MASS + prmsgn.F_start);
-            x = prmsgn.T * i;
+//            x = prmsgn.T * i;
         }
     }
 

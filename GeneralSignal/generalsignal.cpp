@@ -13,34 +13,38 @@ GeneralSignal::~GeneralSignal()
     delete ui;
 }
 
-void GeneralSignal::DragGraph(void)
-{
-   QChart *widget = new QChart;
-   ui->graphicsView->setChart(widget);
+//void GeneralSignal::DragGraph(void)
+//{
+//   QChart *widget = new QChart;
+//   ui->graphicsView->setChart(widget);
 
-   QLineSeries* series = new QLineSeries();
+//   QLineSeries* series = new QLineSeries();
 
-   float Xx, Yy;
-   Xx = 0;
-    for(float i = 0; i<500; i++)
-    {
+//   float Xx, Yy;
+//   Xx = 0;
+//    for(float i = 0; i<500; i++)
+//    {
 
-        if(ui->radioButton->isChecked())
-        {
-            Yy = sin(Xx);
-        }
-        if(ui->radioButton_2->isChecked())
-        {
-            Yy = cos(Xx);
-        }
-        series->append(Xx, Yy);
-        Xx = i * 0.1;
-    }
+//        if(ui->radioButton->isChecked())
+//        {
+//            Yy = sin(Xx);
+//        }
+//        if(ui->radioButton_2->isChecked())
+//        {
+//            Yy = cos(Xx);
+//        }
+//        series->append(Xx, Yy);
+//        Xx = i * 0.1;
+//    }
 
-   widget->addSeries(series);
-   widget->createDefaultAxes();
+//   widget->addSeries(series);
+//   widget->createDefaultAxes();
 
-}
+//}
+
+//-----------------------------------------------
+//Функция создания точек сигнала в чарте
+//-----------------------------------------------
 void GeneralSignal::DragSig(double *mass, ParamSignal prmsgn)
 {
     QChart *widget = new QChart;
@@ -58,6 +62,10 @@ void GeneralSignal::DragSig(double *mass, ParamSignal prmsgn)
     widget->addSeries(series);
     widget->createDefaultAxes();
 }
+
+//-----------------------------------------------
+//Ивент создания сигнала по параметрам
+//-----------------------------------------------
 void GeneralSignal::on_pushButton_clicked()
 {
    //DragGraph();
@@ -68,9 +76,9 @@ void GeneralSignal::on_pushButton_clicked()
    ParamSignal param_sign;
    param_sign.I = ui->doubleSpinBox_2->value(); //32000;
    param_sign.f = ui->spinBox_2->value(); //500;
-   param_sign.T = ui->doubleSpinBox_3->value()/100; //0.01;
+   param_sign.T = ui->doubleSpinBox_3->value() / 100; //0.01;
    param_sign.F_angle = 2 * M_PI * param_sign.f;
-   param_sign.F_start = ui->doubleSpinBox_5->value();// 0.5;
+   param_sign.F_start = ui->doubleSpinBox_5->value() * 180 / M_PI;// 0.5;
    int sign;
    if (ui->radioButton->isChecked()) sign = 0;
    else sign = 1;
