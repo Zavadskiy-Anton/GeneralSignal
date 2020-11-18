@@ -74,11 +74,11 @@ void GeneralSignal::on_pushButton_clicked()
    CreatMass(mass);
    //! Структура параметров сигнала
    ParamSignal param_sign;
-   param_sign.I = ui->doubleSpinBox_2->value(); //32000;
-   param_sign.f = ui->spinBox_2->value(); //500;
-   param_sign.T = ui->doubleSpinBox_3->value() / 100; //0.01;
+   param_sign.I = ui->doubleSpinBox_2->value();                    //32000;
+   param_sign.f = ui->spinBox_2->value();                          //500;
+   param_sign.T = ui->doubleSpinBox_3->value() / 100;              //0.01;
    param_sign.F_angle = 2 * M_PI * param_sign.f;
-   param_sign.F_start = ui->doubleSpinBox_5->value() * 180 / M_PI;// 0.5;
+   param_sign.F_start = ui->doubleSpinBox_5->value() * M_PI / 180;
    int sign;
    if (ui->radioButton->isChecked()) sign = 0;
    else sign = 1;

@@ -25,7 +25,7 @@
         <string>Построить</string>
        </property>
       </widget>
-      <widget class="QWidget" name="">
+      <widget class="QWidget" name="layoutWidget">
        <layout class="QGridLayout" name="gridLayout">
         <item row="1" column="1">
          <widget class="QDoubleSpinBox" name="doubleSpinBox_3">
@@ -54,10 +54,10 @@
         <item row="1" column="3">
          <widget class="QDoubleSpinBox" name="doubleSpinBox_5">
           <property name="minimum">
-           <double>-90.000000000000000</double>
+           <double>-180.000000000000000</double>
           </property>
           <property name="maximum">
-           <double>90.000000000000000</double>
+           <double>180.000000000000000</double>
           </property>
           <property name="singleStep">
            <double>0.100000000000000</double>
@@ -153,13 +153,6 @@
      <height>21</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menu">
-    <property name="title">
-     <string>Файл</string>
-    </property>
-    <addaction name="action"/>
-   </widget>
-   <addaction name="menu"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="action">
